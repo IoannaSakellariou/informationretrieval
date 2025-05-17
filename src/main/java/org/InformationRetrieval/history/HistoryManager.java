@@ -8,7 +8,7 @@ public class HistoryManager {
 
     private static int MAX_HISTORY = 20;
 
-    // LinkedHashMap to preserve insertion order — query -> list of article titles
+    
     private LinkedHashMap<String, List<String>> historyMap = new LinkedHashMap<String, List<String>>() {
         @Override
         protected boolean removeEldestEntry(Map.Entry<String, List<String>> eldest) {
