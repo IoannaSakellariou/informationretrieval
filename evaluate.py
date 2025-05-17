@@ -19,7 +19,7 @@ MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
 FAISS_DIR = "faiss_index"
 OUTPUT_FILE = "evaluation_results.txt"
 
-#Ερωτήσεις αξιολόγησης
+
 queries = [
     "What is TuSimple's plan for autonomous trucks?",
     "What are the benefits of the Ironhand glove?",
@@ -28,7 +28,7 @@ queries = [
     "How have oil prices changed due to the war in Ukraine?"
 ]
 
-#Embedding και φόρτωση FAISS 
+
 embedding = HuggingFaceEmbeddings(model_name=MODEL_NAME)
 db = FAISS.load_local(FAISS_DIR, embedding, allow_dangerous_deserialization=True)
 retriever = db.as_retriever()
@@ -43,7 +43,7 @@ with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write(header)
         print(c(header, "bold"))
 
-        # Με χρήση context (RAG)
+        # με χρήση context 
         result_rag = qa_chain.invoke({"query": q})
         rag_answer = result_rag['result']
         f.write("\nAnswer with context:\n" + rag_answer + "\n")
@@ -57,7 +57,7 @@ with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
             f.write("-- " + chunk + "...\n")
             print("--", chunk, "...\n")
 
-        # Χωρίς χρήση context (απευθείας ερώτηση στο LLM)
+        # χωρίς χρήση context 
         no_context = llm.invoke(q)
         f.write("\nAnswer without context:\n" + no_context + "\n")
         print(c("Answer without context:", "yellow"))
