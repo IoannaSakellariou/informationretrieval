@@ -9,8 +9,8 @@ from langchain_community.llms import Ollama
 from langchain.chains import RetrievalQA
 
 
-# ANSI escape codes for color
-def c(text, color):  # Color helper
+
+def c(text, color): 
     colors = {
         "blue": "\033[94m",
         "green": "\033[92m",
@@ -31,23 +31,23 @@ CHUNK_OVERLAP = 50
 TOP_K = 4
 FAISS_DIR = "faiss_index"
 
-# Φόρτωσε τα άρθρα
+
 print(c("Loading articles...", "blue"))
 df = pd.read_csv(CSV_PATH)
 texts = df['Article text'].dropna().tolist()
 documents = [Document(page_content=t) for t in texts]
 
 
-# Chunking με LangChain ===
+
 print(c("Splitting documents into chunks...", "blue"))
 splitter = RecursiveCharacterTextSplitter(chunk_size=CHUNK_SIZE, chunk_overlap=CHUNK_OVERLAP)
 chunked_docs = splitter.split_documents(documents)
 
-# Ενσωμάτωση μοντέλου
+
 print(c("Generating embeddings...", "blue"))
 embedding = HuggingFaceEmbeddings(model_name=MODEL_NAME)
 
-# Χτίσε τη FAISS βάση
+
 print(c("Building FAISS vector store...", "blue"))
 if os.path.exists("faiss_index"):
     print(c("Loading existing FAISS index...", "yellow"))
@@ -58,8 +58,6 @@ else:
     db.save_local("faiss_index")
 
 
-# Διάλογος CLI 
-# === RAG με Ollama ===
 llm = Ollama(model="llama3.2:3b")
 qa_chain = RetrievalQA.from_chain_type(llm=llm, retriever=db.as_retriever(), return_source_documents=True)
 
