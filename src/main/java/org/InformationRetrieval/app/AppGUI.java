@@ -19,7 +19,7 @@ import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.highlight.*;
 import org.apache.lucene.store.FSDirectory;
-//import org.apache.lucene.search.highlight.TokenSources;
+
 
 import java.nio.file.Paths;
 import java.util.*;
@@ -71,7 +71,7 @@ public class AppGUI extends Application {
         HBox searchOptions = new HBox(10, generalSearch, fieldSearch, fieldSelector, vectorSearch);
         searchOptions.setPadding(new Insets(5));
 
-     // Results box with fixed height
+
         resultBox = new VBox(10);
         resultBox.setPadding(new Insets(5));
         ScrollPane scrollPane = new ScrollPane(resultBox);
@@ -79,7 +79,7 @@ public class AppGUI extends Application {
         scrollPane.setPrefHeight(250);
         scrollPane.setMinHeight(250);
 
-        // History box with fixed height
+       
         historyArea = new TextArea();
         historyArea.setEditable(false);
         historyArea.setWrapText(true);
