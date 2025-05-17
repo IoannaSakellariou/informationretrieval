@@ -16,7 +16,6 @@ public class HistoryManager {
         }
     };
 
-    // Adds a new query and up to 5 result headlines
     public void addEntry(String query, List<Document> results) {
         List<String> top5Titles = new ArrayList<>();
         for (int i = 0; i < Math.min(results.size(), 5); i++) {
@@ -26,7 +25,6 @@ public class HistoryManager {
         historyMap.put(query, top5Titles);
     }
 
-    // Returns the formatted search history string
     public String getFormattedHistory() {
         if (historyMap.isEmpty()) return "\uD83D\uDCEC No search history available."; 
 
