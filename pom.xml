@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.sample</groupId>
+  <artifactId>InformationRetrieval</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+
+  <name>InformationRetrieval</name>
+  <description>A simple InformationRetrieval.</description>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.example.com</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>8</maven.compiler.source>
+    <maven.compiler.target>8</maven.compiler.target>
+  </properties>
+
+
+
+  <dependencies>
+	
+	<dependency>
+            <groupId>ai.djl</groupId>
+            <artifactId>api</artifactId>
+            <version>0.32.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ai.djl.pytorch</groupId>
+            <artifactId>pytorch-engine</artifactId>
+            <version>0.32.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ai.djl.huggingface</groupId>
+            <artifactId>tokenizers</artifactId>
+            <version>0.32.0</version>
+        </dependency>
+
+     <!-- DJL API -->
+ 
+  
+  
+  
+  <!-- PyTorch engine -->
+
+  <!-- PyTorch model zoo (για να φορτώσεις HuggingFace μοντέλα) -->
+  <dependency>
+    <groupId>ai.djl.pytorch</groupId>
+    <artifactId>pytorch-model-zoo</artifactId>
+    <version>0.32.0</version>
+  </dependency>
+  
+  <dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-simple</artifactId>
+    <version>2.0.7</version>
+</dependency>
+
+
+    <!-- SLF4J logger (προαιρετικό αλλά σταματάει το warning σου) -->
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-simple</artifactId>
+        <version>2.0.7</version>
+    </dependency>
+
+
+    <dependency>
+		<groupId>org.apache.lucene</groupId>
+	<artifactId>lucene-core</artifactId>
+	<version>9.10.0</version>
+	</dependency>
+	<!--  Apache Lucene Query Parser  -->
+	<dependency>
+	<groupId>org.apache.lucene</groupId>
+	<artifactId>lucene-queryparser</artifactId>
+	<version>9.10.0</version>
+	</dependency>
+	<!--  https://mvnrepository.com/artifact/org.apache.lucene/lucene-analysis-common  -->
+	<dependency>
+	<groupId>org.apache.lucene</groupId>
+	<artifactId>lucene-analysis-common</artifactId>
+	<version>9.10.0</version>
+	</dependency>
+	<!--  https://mvnrepository.com/artifact/org.apache.lucene/lucene-queries  -->
+	<dependency>
+	<groupId>org.apache.lucene</groupId>
+	<artifactId>lucene-queries</artifactId>
+	<version>9.10.0</version>
+	</dependency>
+	<dependency>
+	<groupId>org.apache.lucene</groupId>
+	<artifactId>lucene-highlighter</artifactId>
+	<version>9.10.0</version>
+	</dependency>
+	<dependency>
+	<groupId>org.apache.lucene</groupId>
+	<artifactId>lucene-suggest</artifactId>
+	<version>9.10.0</version>
+	</dependency>
+	<dependency>
+	<groupId>com.opencsv</groupId>
+	<artifactId>opencsv</artifactId>
+	<version>5.5.1</version>
+	</dependency>
+	<dependency>
+	<groupId>org.openjfx</groupId>
+	<artifactId>javafx-fxml</artifactId>
+	<version>20.0.1</version>
+	</dependency>
+	<dependency>
+	<groupId>org.openjfx</groupId>
+	<artifactId>javafx-graphics</artifactId>
+	<version>20.0.1</version>
+	</dependency>
+</dependencies>
+
+<repositories>
+    <repository>
+        <id>djl</id>
+        <name>DJL repository</name>
+        <url>https://oss.sonatype.org/content/repositories/releases/</url>
+    </repository>
+</repositories>
+
+
+  <build>
+	<resources>
+        <resource>
+            <directory>src/main/resources</directory>
+        </resource>
+    </resources>
+    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      <plugins>
+        <plugin>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>3.4.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>3.12.1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-project-info-reports-plugin</artifactId>
+          <version>3.6.1</version>
+        </plugin>
+        <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
+        <plugin>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>3.3.1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.13.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.3.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>3.4.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>3.1.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>3.1.2</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+  
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </reporting>
+</project>
