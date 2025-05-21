@@ -33,7 +33,7 @@ public class HistoryManager {
         for (Map.Entry<String, List<String>> entry : historyMap.entrySet()) {
             sb.append("\uD83D\uDD0E ").append(count++).append(". Query: ").append(entry.getKey()).append("\n");
             for (String title : entry.getValue()) {
-                sb.append("   • ").append(title).append("\n");
+                sb.append("   \u2022 ").append(title).append("\n");
             }
             sb.append("\n");
         }
